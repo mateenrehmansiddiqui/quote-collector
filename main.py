@@ -1,12 +1,28 @@
 from core import add_quote, list_quotes, delete_quote
 
-print("----QUOTE-COLLECTOR----")
+def menu():
 
-add_quote("'The only way to do great work is to love what you do.' — Steve Jobs")
-add_quote("'Success is not final, failure is not fatal: It is the courage to continue that counts.' — Winston Churchill")
 
-list_quotes()
+    while True:
 
-delete_quote(1)
+        print("\n----QUOTE-COLLECTOR----\n")
+        print("1. Add Quote")
+        print("2. List Quotes")
+        print("3. Delete Quote")
+        print("4. Exit")
+        choice = int(input("Choice: "))
 
-list_quotes()
+        if choice == 1:
+            quote = input("\nEnter Quote to add: \n")
+            add_quote(quote)
+        elif choice == 2:
+            list_quotes()
+        elif choice == 3:
+            index = int(input("\nEnter index to delete quote from: \n"))
+            delete_quote(index)
+        elif choice == 4:
+            exit()
+        else:
+            print("[!] Invalid Choice.")
+
+menu()
